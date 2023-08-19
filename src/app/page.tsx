@@ -14,6 +14,9 @@ export default function Home() {
   const [subsecao, setSubsecao] = useState<string>("");
   const [UAA, setUAA] = useState<string>("");
 
+  const comCumprimento = "Há cumprimento de mandado";
+  const semCumprimento = "Não há cumprimento de mandado";
+
   cities.forEach((city) => {
     city.cidadesAtendidas.forEach((cityName) => {
       if (!cityList.includes(cityName.name)) {
@@ -70,9 +73,7 @@ export default function Home() {
       {selectedCity != "" ? (
         <div className="text-gray-200 mt-2 flex flex-col items-center">
           <span className="font-bold">
-            {mandado
-              ? "Há cumprimento de Mandado"
-              : "Não há cumprimento de mandado"}
+            {mandado ? comCumprimento : semCumprimento}
           </span>
           <span>
             <span className="font-bold">Atendido por:</span>{" "}
@@ -82,6 +83,18 @@ export default function Home() {
       ) : (
         ""
       )}
+      <div className="flex absolute bottom-1 text-gray-100 text-sm">
+        <span>
+          Desenvolvido por{" "}
+          <a
+            className="underline text-gray-300"
+            href="https://github.com/joaotextor"
+            target="_blank"
+          >
+            João Textor
+          </a>
+        </span>
+      </div>
     </main>
   );
 }
