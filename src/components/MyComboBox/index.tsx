@@ -1,8 +1,14 @@
-import { Fragment, useState } from "react";
+"use client";
+import React, { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 
+interface MyComboBoxProps {
+  itemList: string[];
+  handleInputChange: (value: string) => void;
+}
+
 const MyComboBox = (
-  { itemList }: { itemList: string[] },
+  { itemList, handleInputChange }: MyComboBoxProps,
   ...props: Array<React.HTMLAttributes<HTMLInputElement>>
 ) => {
   const [selectedCity, setSelectedCity] = useState(itemList[0]);
@@ -14,14 +20,23 @@ const MyComboBox = (
       : itemList.filter((city: string) => {
           return city.toLowerCase().includes(query.toLowerCase());
         });
+  const handleChange = (value: string) => {
+    setSelectedCity(value);
+    handleInputChange(value);
+  };
+
   return (
-    <Combobox value={selectedCity} onChange={setSelectedCity} {...props}>
+    <Combobox
+      value={selectedCity}
+      onChange={(event) => handleChange(event)}
+      {...props}
+    >
       <div className="relative mt-1">
         <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
           <Combobox.Input
             onChange={(event) => setQuery(event.target.value)}
             className="border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-            placeholder="Selecione a cidade"
+            placeholder="Informe a cidade"
           />
         </div>
         <Transition
@@ -37,7 +52,7 @@ const MyComboBox = (
                 key={city}
                 className={({ active }) =>
                   `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                    active ? "bg-teal-600 text-white" : "text-gray-900"
+                    active ? "bg-eproc-secondary text-white" : "text-gray-900"
                   }`
                 }
                 value={city}
