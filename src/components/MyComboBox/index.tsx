@@ -20,6 +20,7 @@ const MyComboBox = (
       : itemList.filter((city: string) => {
           return city.toLowerCase().includes(query.toLowerCase());
         });
+
   const handleChange = (value: string) => {
     setSelectedCity(value);
     handleInputChange(value);
