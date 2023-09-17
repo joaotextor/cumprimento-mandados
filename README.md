@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Execution of Court Orders
 
-## Getting Started
+Simple project written in React (Next.js). Created as an internal tool for use of the Brazilian Federal Justice (Judicial Section of Rio Grande do Sul) to verify if, in a given city, there is a bailiff team to execute Court Orders.
+The application receives an input (The city name) and it outputs if there is execution of court orders in that city, and which Subsection or Advanced Service Unit is responsible for it.
 
-First, run the development server:
+Access the tool: [https://joaotextor.com/cumprimento-mandados](https://joaotextor.com/cumprimento-mandados)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# Cumprimento de Mandados Judiciais
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Projeto simples escrito em React (Next.js). Criado como uma ferramenta de uso interno na Seção Judiciária do Rio Grande do Sul da Justiça Federal para verificar se, em determinada cidade, é feito o cumprimento de Mandados judiciais por uma CEMAN.
+A aplicação recebe o nome da cidade e informa se nela é feita a execução de Mandado por Oficial de Justiça Avaliador da JF, e qual Subseção ou UAA é responsável pelo atendimento.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+As informações são fornecidas com base no Anexo VI do Provimento nº 62 do TRF/4: [https://www.trf4.jus.br/trf4/upload/editor/2023/apb17_pu_20230814153858_rrt15_consolida_correg.htm#x6](https://www.trf4.jus.br/trf4/upload/editor/2023/apb17_pu_20230814153858_rrt15_consolida_correg.htm#x6)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Acesso à ferramenta: [https://joaotextor.com/cumprimento-mandados](https://joaotextor.com/cumprimento-mandados)
