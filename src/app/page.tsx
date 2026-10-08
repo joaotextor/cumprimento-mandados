@@ -12,10 +12,12 @@ export default function Home() {
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [mandado, setMandado] = useState<boolean>(false);
   const [subsecao, setSubsecao] = useState<string>("");
-  const [UAA, setUAA] = useState<string>("");
+  const [apenasEletronico, setApenasEletronico] = useState<boolean>(false);
+  const [atendeExecutivos, setAtendeExecutivos] = useState<boolean>(false);
 
   const comCumprimento = "Há cumprimento de mandado";
   const semCumprimento = "Não há cumprimento de mandado";
+  const apenasEletronicoMsg = "Atendimento apenas eletrônico";
 
   cities.forEach((city) => {
     city.cidadesAtendidas.forEach((cityName) => {
@@ -33,9 +35,10 @@ export default function Home() {
     cities.forEach((city) => {
       for (let i = 0; i < city.cidadesAtendidas.length; i++) {
         if (city.cidadesAtendidas[i].name == selectedCity) {
-          setMandado(city.cidadesAtendidas[i].mandado);
+          setMandado(city.cidadesAtendidas[i].atendimentoObrigatorio);
           setSubsecao(city.nomeCidade);
-          setUAA(city.cidadesAtendidas[i].UAA);
+          setApenasEletronico(city.cidadesAtendidas[i].AtendApenasEletronico);
+          setAtendeExecutivos(city.cidadesAtendidas[i].AtendMandadosExecutivos);
         }
       }
     });
@@ -73,11 +76,20 @@ export default function Home() {
       {selectedCity != "" ? (
         <div className="text-gray-200 mt-2 flex flex-col items-center">
           <span className="font-bold">
-            {mandado ? comCumprimento : semCumprimento}
+            {mandado
+              ? comCumprimento
+              : apenasEletronico
+              ? apenasEletronicoMsg
+              : semCumprimento}
           </span>
           <span>
-            <span className="font-bold">Atendido por:</span>{" "}
-            {UAA ? UAA : `Subseção de ${subsecao}`}
+            <span className="font-bold">Atendido por:</span> Subseção de{" "}
+            {subsecao}
+          </span>
+          <span>
+            {atendeExecutivos
+              ? "Atende mandados executivos"
+              : "NÃO atende mandados executivos"}
           </span>
         </div>
       ) : (
