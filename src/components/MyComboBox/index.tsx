@@ -29,7 +29,7 @@ const MyComboBox = (
   return (
     <Combobox
       value={selectedCity}
-      onChange={(event) => handleChange(event)}
+      onChange={(event) => handleChange(event ?? "")}
       {...props}
     >
       <div className="relative mt-1">

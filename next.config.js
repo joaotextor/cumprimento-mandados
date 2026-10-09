@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/cumprimento-mandados",
-  // basePath: "/",
+  // basePath: "/cumprimento-mandados",
   images: {
     unoptimized: true,
   },

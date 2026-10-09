@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-eproc-primary: #005580;
+  --color-eproc-secondary: #12b0d0;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
